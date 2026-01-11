@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:ParcAuto_Web_App.ViewModels"
+             x:Class="ParcAuto_Web_App.Views.VehicleEditPage"
+             x:DataType="viewmodels:VehicleEditViewModel"
+             Title="{Binding IsEditMode, Converter={StaticResource EditModeTitleConverter}}">
+    
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+
+            <!-- Error Message -->
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="Red"
+                   IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyConverter}}"
+                   HorizontalOptions="Center"/>
+
+            <!-- Make -->
+            <Label Text="Make *"/>
+            <Entry Text="{Binding Make}"
+                   Placeholder="Enter make"
+                   IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- Model -->
+            <Label Text="Model *"/>
+            <Entry Text="{Binding Model}"
+                   Placeholder="Enter model"
+                   IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- Year -->
+            <Label Text="Year *"/>
+            <Entry Text="{Binding Year}"
+                   Placeholder="Enter year"
+                   Keyboard="Numeric"
+                   IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- License Plate -->
+            <Label Text="License Plate *"/>
+            <Entry Text="{Binding LicensePlate}"
+                   Placeholder="Enter license plate"
+                   IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- VIN -->
+            <Label Text="VIN *"/>
+            <Entry Text="{Binding Vin}"
+                   Placeholder="Enter VIN"
+                   IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- Color -->
+            <Label Text="Color"/>
+            <Entry Text="{Binding Color}"
+                   Placeholder="Enter color (optional)"
+                   IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- Mileage -->
+            <Label Text="Mileage (km)"/>
+            <Entry Text="{Binding Mileage}"
+                   Placeholder="Enter mileage (optional)"
+                   Keyboard="Numeric"
+                   IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- Status -->
+            <Label Text="Status *"/>
+            <Picker SelectedItem="{Binding Status}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Available</x:String>
+                        <x:String>In Use</x:String>
+                        <x:String>Maintenance</x:String>
+                        <x:String>Out of Service</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Action Buttons -->
+            <Button Text="Save"
+                    Command="{Binding SaveVehicleCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                    Margin="0,20,0,0"/>
+
+            <Button Text="Cancel"
+                    Command="{Binding CancelCommand}"
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource Primary}"
+                    BorderColor="{StaticResource Primary}"
+                    BorderWidth="1"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                              IsVisible="{Binding IsBusy}"
+                              HorizontalOptions="Center"
+                              Color="{StaticResource Primary}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

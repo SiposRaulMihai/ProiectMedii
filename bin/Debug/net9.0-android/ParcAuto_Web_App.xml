@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParcAuto_Web_App</name>
+    </assembly>
+    <members>
+        <member name="T:ParcAuto_Web_App.ViewModels.DriverEditViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.Driver">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.driver"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.FirstName">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.firstName"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.LastName">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.lastName"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.LicenseNumber">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.licenseNumber"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.PhoneNumber">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.phoneNumber"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.Email">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.email"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.IsEditMode">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.isEditMode"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.PageTitle">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.pageTitle"/>
+        </member>
+        <member name="M:ParcAuto_Web_App.ViewModels.DriverEditViewModel.OnDriverChanged(ParcAuto_Web_App.Models.Driver)">
+            <summary>Executes the logic for when <see cref="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.Driver"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.Driver"/> is changed.</remarks>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.saveCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.SaveCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.SaveCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.DriverEditViewModel.SaveAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.DriverEditViewModel.cancelCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.CancelCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverEditViewModel.CancelCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.DriverEditViewModel.CancelAsync"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.DriverListViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.Drivers">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverListViewModel.drivers"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.IsRefreshing">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.DriverListViewModel.isRefreshing"/>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.DriverListViewModel.loadDriversCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.LoadDriversCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.LoadDriversCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.DriverListViewModel.LoadDriversAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.DriverListViewModel.addDriverCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.AddDriverCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.AddDriverCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.DriverListViewModel.AddDriverAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.DriverListViewModel.editDriverCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.EditDriverCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.EditDriverCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.DriverListViewModel.EditDriverAsync(ParcAuto_Web_App.Models.Driver)"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.DriverListViewModel.deleteDriverCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.DeleteDriverCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.DeleteDriverCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.DriverListViewModel.DeleteDriverAsync(ParcAuto_Web_App.Models.Driver)"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.DriverListViewModel.refreshCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.RefreshCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.DriverListViewModel.RefreshCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.DriverListViewModel.RefreshAsync"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.LoginViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.LoginViewModel.Email">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.LoginViewModel.email"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.LoginViewModel.Password">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.LoginViewModel.password"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.LoginViewModel.RememberMe">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.LoginViewModel.rememberMe"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.LoginViewModel.IsBusy">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.LoginViewModel.isBusy"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.LoginViewModel.ErrorMessage">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.LoginViewModel.errorMessage"/>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.LoginViewModel.loginCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.LoginViewModel.LoginCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.LoginViewModel.LoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.LoginViewModel.LoginAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.LoginViewModel.registerCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.LoginViewModel.RegisterCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.LoginViewModel.RegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.LoginViewModel.RegisterAsync"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.Reservation">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.reservation"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.IsBusy">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.isBusy"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.ReservationId">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.reservationId"/>
+        </member>
+        <member name="M:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.OnReservationIdChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.ReservationId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.ReservationId"/> is changed.</remarks>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.editReservationCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.EditReservationCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.EditReservationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.EditReservationAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.deleteReservationCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.DeleteReservationCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.DeleteReservationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationDetailsViewModel.DeleteReservationAsync"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.ReservationEditViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.ReservationId">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.reservationId"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.Vehicles">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.vehicles"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.Drivers">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.drivers"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.SelectedVehicle">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.selectedVehicle"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.SelectedDriver">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.selectedDriver"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.StartDate">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.startDate"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.StartTime">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.startTime"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.EndDate">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.endDate"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.EndTime">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.endTime"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.Purpose">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.purpose"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.Status">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.status"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.IsBusy">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.isBusy"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.ErrorMessage">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.errorMessage"/>
+        </member>
+        <member name="M:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.OnReservationIdChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.ReservationId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.ReservationId"/> is changed.</remarks>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.saveReservationCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.SaveReservationCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.SaveReservationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.SaveReservationAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.cancelCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.CancelCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.CancelCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationEditViewModel.CancelAsync"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.ReservationListViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.Reservations">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationListViewModel.reservations"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.IsRefreshing">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationListViewModel.isRefreshing"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.IsBusy">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.ReservationListViewModel.isBusy"/>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationListViewModel.loadReservationsCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.LoadReservationsCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.LoadReservationsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationListViewModel.LoadReservationsAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationListViewModel.refreshCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.RefreshCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.RefreshCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationListViewModel.RefreshAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationListViewModel.addReservationCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.AddReservationCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.AddReservationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationListViewModel.AddReservationAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.ReservationListViewModel.selectReservationCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.SelectReservationCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.ReservationListViewModel.SelectReservationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.ReservationListViewModel.SelectReservationAsync(ParcAuto_Web_App.Models.Reservation)"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.Vehicle">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.vehicle"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.IsBusy">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.isBusy"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.VehicleId">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.vehicleId"/>
+        </member>
+        <member name="M:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.OnVehicleIdChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.VehicleId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.VehicleId"/> is changed.</remarks>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.editVehicleCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.EditVehicleCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.EditVehicleCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.EditVehicleAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.deleteVehicleCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.DeleteVehicleCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.DeleteVehicleCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleDetailsViewModel.DeleteVehicleAsync"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.VehicleEditViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.VehicleId">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.vehicleId"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.Make">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.make"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.Model">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.model"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.Year">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.year"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.LicensePlate">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.licensePlate"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.Vin">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.vin"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.Color">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.color"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.Mileage">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.mileage"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.Status">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.status"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.IsBusy">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.isBusy"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.ErrorMessage">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.errorMessage"/>
+        </member>
+        <member name="M:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.OnVehicleIdChanged(System.Int32)">
+            <summary>Executes the logic for when <see cref="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.VehicleId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.VehicleId"/> is changed.</remarks>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.saveVehicleCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.SaveVehicleCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.SaveVehicleCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.SaveVehicleAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.cancelCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.CancelCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.CancelCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleEditViewModel.CancelAsync"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.ViewModels.VehicleListViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.Vehicles">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleListViewModel.vehicles"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.IsRefreshing">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleListViewModel.isRefreshing"/>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.IsBusy">
+            <inheritdoc cref="F:ParcAuto_Web_App.ViewModels.VehicleListViewModel.isBusy"/>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleListViewModel.loadVehiclesCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.LoadVehiclesCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.LoadVehiclesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleListViewModel.LoadVehiclesAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleListViewModel.refreshCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.RefreshCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.RefreshCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleListViewModel.RefreshAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleListViewModel.addVehicleCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.AddVehicleCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.AddVehicleCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleListViewModel.AddVehicleAsync"/>.</summary>
+        </member>
+        <member name="F:ParcAuto_Web_App.ViewModels.VehicleListViewModel.selectVehicleCommand">
+            <summary>The backing field for <see cref="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.SelectVehicleCommand"/>.</summary>
+        </member>
+        <member name="P:ParcAuto_Web_App.ViewModels.VehicleListViewModel.SelectVehicleCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:ParcAuto_Web_App.ViewModels.VehicleListViewModel.SelectVehicleAsync(ParcAuto_Web_App.Models.Vehicle)"/>.</summary>
+        </member>
+        <member name="T:ParcAuto_Web_App.Resource">
+            <summary>
+            Android Resource Designer class.
+            Exposes the Android Resource designer assembly into the project Namespace.
+            </summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Driver">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Driver" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.FirstName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "FirstName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LastName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LastName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LicenseNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LicenseNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PhoneNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PhoneNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsEditMode">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsEditMode" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.PageTitle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "PageTitle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Drivers">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Drivers" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsRefreshing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsRefreshing" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.RememberMe">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "RememberMe" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Reservation">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Reservation" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ReservationId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ReservationId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Vehicles">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Vehicles" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedVehicle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedVehicle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedDriver">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedDriver" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StartDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StartDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StartTime">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StartTime" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.EndDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "EndDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.EndTime">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "EndTime" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Purpose">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Purpose" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Status">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Status" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Reservations">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Reservations" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Vehicle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Vehicle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.VehicleId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "VehicleId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Make">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Make" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Model">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Model" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Year">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Year" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.LicensePlate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "LicensePlate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Vin">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Vin" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Color">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Color" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Mileage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Mileage" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Driver">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Driver" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.FirstName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "FirstName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LastName">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LastName" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LicenseNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LicenseNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PhoneNumber">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PhoneNumber" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsEditMode">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsEditMode" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.PageTitle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "PageTitle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Drivers">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Drivers" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsRefreshing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsRefreshing" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.RememberMe">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "RememberMe" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Reservation">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Reservation" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ReservationId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ReservationId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Vehicles">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Vehicles" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedVehicle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedVehicle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedDriver">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedDriver" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StartDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StartDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StartTime">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StartTime" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.EndDate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "EndDate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.EndTime">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "EndTime" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Purpose">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Purpose" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Status">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Status" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Reservations">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Reservations" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Vehicle">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Vehicle" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.VehicleId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "VehicleId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Make">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Make" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Model">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Model" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Year">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Year" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.LicensePlate">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "LicensePlate" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Vin">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Vin" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Color">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Color" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Mileage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Mileage" generated properties.</summary>
+        </member>
+    </members>
+</doc>

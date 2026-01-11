@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:ParcAuto_Web_App.ViewModels"
+             xmlns:models="clr-namespace:ParcAuto_Web_App.Models"
+             x:Class="ParcAuto_Web_App.Views.VehicleListPage"
+             x:DataType="viewmodels:VehicleListViewModel"
+             Title="Vehicles">
+    
+    <Grid RowDefinitions="Auto,*" Padding="10">
+        
+        <!-- Add Button -->
+        <Button Grid.Row="0"
+                Text="Add Vehicle"
+                Command="{Binding AddVehicleCommand}"
+                Margin="0,0,0,10"
+                HorizontalOptions="End"/>
+
+        <!-- Vehicle List -->
+        <RefreshView Grid.Row="1"
+                     IsRefreshing="{Binding IsRefreshing}"
+                     Command="{Binding RefreshCommand}">
+            
+            <CollectionView ItemsSource="{Binding Vehicles}"
+                           SelectionMode="Single"
+                           SelectionChangedCommand="{Binding SelectVehicleCommand}"
+                           SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
+                
+                <CollectionView.EmptyView>
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label Text="No vehicles found"
+                               FontSize="18"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Pull down to refresh"
+                               FontSize="14"
+                               TextColor="Gray"
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Vehicle">
+                        <Frame Margin="5" Padding="10" HasShadow="True">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <VerticalStackLayout Grid.Column="0">
+                                    <Label Text="{Binding DisplayName}"
+                                           FontSize="18"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding LicensePlate, StringFormat='License: {0}'}"
+                                           FontSize="14"
+                                           TextColor="Gray"/>
+                                    <Label Text="{Binding Status}"
+                                           FontSize="14"
+                                           TextColor="{StaticResource Primary}"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="1"
+                                       Text="&#xf054;"
+                                       FontFamily="FontAwesomeSolid"
+                                       FontSize="20"
+                                       VerticalOptions="Center"
+                                       TextColor="{StaticResource Primary}"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <!-- Loading Indicator -->
+        <ActivityIndicator Grid.Row="1"
+                          IsRunning="{Binding IsBusy}"
+                          IsVisible="{Binding IsBusy}"
+                          VerticalOptions="Center"
+                          HorizontalOptions="Center"
+                          Color="{StaticResource Primary}"/>
+    </Grid>
+    
+</ContentPage>
