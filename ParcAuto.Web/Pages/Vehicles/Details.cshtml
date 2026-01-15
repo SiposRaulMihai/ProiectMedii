@@ -1,0 +1,64 @@
+@page
+@model ParcAuto.Web.Pages.Vehicles.DetailsModel
+
+@{
+    ViewData["Title"] = "Vehicle Details";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-car-front"></i> Vehicle Details</h2>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Vehicle.VehicleId" class="btn btn-warning">Edit</a>
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-body">
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.LicensePlate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.LicensePlate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Make)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Make)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Mileage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vehicle.Mileage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicle.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.Vehicle.Status == "Available")
+            {
+                <span class="badge bg-success">Available</span>
+            }
+            else
+            {
+                <span class="badge bg-danger">In Use</span>
+            }
+        </dd>
+    </dl>
+    </div>
+</div>

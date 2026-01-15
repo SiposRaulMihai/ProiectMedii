@@ -1,0 +1,69 @@
+@page
+@model ParcAuto.Web.Pages.Reservations.IndexModel
+
+@{
+    ViewData["Title"] = "Reservations";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>📅 Reservations</h2>
+    <div>
+        <a asp-page="/Index" class="btn btn-outline-secondary">🏠 Home</a>
+        <a asp-page="Create" class="btn btn-info">+ New Reservation</a>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].Vehicle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].Driver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservation[0].Purpose)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Reservation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle.LicensePlate) - @Html.DisplayFor(modelItem => item.Vehicle.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Driver.FirstName) @Html.DisplayFor(modelItem => item.Driver.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Purpose)
+            </td>
+            <td>
+                <div class="btn-group btn-group-sm" role="group">
+                    <a asp-page="./Details" asp-route-id="@item.ReservationId" class="btn btn-info">Details</a>
+                    <a asp-page="./Edit" asp-route-id="@item.ReservationId" class="btn btn-warning">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ReservationId" class="btn btn-danger" onclick="return confirmDelete('@User.Identity.IsAuthenticated')">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>

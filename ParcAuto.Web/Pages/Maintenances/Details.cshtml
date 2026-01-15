@@ -1,0 +1,45 @@
+@page
+@model ParcAuto.Web.Pages.Maintenances.DetailsModel
+
+@{
+    ViewData["Title"] = "Maintenance Details";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>🔧 Maintenance Details</h2>
+    <div>
+        <a asp-page="./Edit" asp-route-id="@Model.Maintenance.MaintenanceId" class="btn btn-warning">Edit</a>
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-body">
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maintenance.Vehicle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maintenance.Vehicle.LicensePlate) - @Html.DisplayFor(model => model.Maintenance.Vehicle.Make) @Html.DisplayFor(model => model.Maintenance.Vehicle.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maintenance.MaintenanceDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maintenance.MaintenanceDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maintenance.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Maintenance.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Maintenance.Cost)
+        </dt>
+        <dd class="col-sm-10">
+            @String.Format("{0:C}", Model.Maintenance.Cost)
+        </dd>
+    </dl>
+    </div>
+</div>

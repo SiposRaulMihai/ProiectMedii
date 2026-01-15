@@ -1,0 +1,63 @@
+@page
+@model ParcAuto.Web.Pages.FuelLogs.IndexModel
+
+@{
+    ViewData["Title"] = "Fuel Logs";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>⛽ Fuel Logs</h2>
+    <div>
+        <a asp-page="/Index" class="btn btn-outline-secondary">🏠 Home</a>
+        <a asp-page="Create" class="btn btn-danger">+ Log Refueling</a>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FuelLog[0].Vehicle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuelLog[0].FuelDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuelLog[0].Liters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuelLog[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.FuelLog) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle.LicensePlate) - @Html.DisplayFor(modelItem => item.Vehicle.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Liters)
+            </td>
+            <td>
+                @String.Format("{0:C}", item.Price)
+            </td>
+            <td>
+                <div class="btn-group btn-group-sm" role="group">
+                    <a asp-page="./Details" asp-route-id="@item.FuelLogId" class="btn btn-info">Details</a>
+                    <a asp-page="./Edit" asp-route-id="@item.FuelLogId" class="btn btn-warning">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.FuelLogId" class="btn btn-danger" onclick="return confirmDelete('@User.Identity.IsAuthenticated')">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>

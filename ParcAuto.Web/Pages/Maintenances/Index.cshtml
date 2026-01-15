@@ -1,0 +1,63 @@
+@page
+@model ParcAuto.Web.Pages.Maintenances.IndexModel
+
+@{
+    ViewData["Title"] = "Maintenance";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>🔧 Maintenance Records</h2>
+    <div>
+        <a asp-page="/Index" class="btn btn-outline-secondary">🏠 Home</a>
+        <a asp-page="Create" class="btn btn-warning">+ Log Maintenance</a>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Maintenance[0].Vehicle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maintenance[0].MaintenanceDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maintenance[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maintenance[0].Cost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Maintenance) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle.LicensePlate) - @Html.DisplayFor(modelItem => item.Vehicle.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaintenanceDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @String.Format("{0:C}", item.Cost)
+            </td>
+            <td>
+                <div class="btn-group btn-group-sm" role="group">
+                    <a asp-page="./Details" asp-route-id="@item.MaintenanceId" class="btn btn-info">Details</a>
+                    <a asp-page="./Edit" asp-route-id="@item.MaintenanceId" class="btn btn-warning">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.MaintenanceId" class="btn btn-danger" onclick="return confirmDelete('@User.Identity.IsAuthenticated')">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>

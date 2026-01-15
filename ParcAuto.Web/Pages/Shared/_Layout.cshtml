@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ParcAuto</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ParcAuto.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" asp-area="" asp-page="/Index">🚗 ParcAuto</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- LEFT MENU -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Index">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Vehicles/Index">Vehicles</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Drivers/Index">Drivers</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Reservations/Index">Reservations</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Maintenances/Index">Maintenances</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/FuelLogs/Index">Fuel Logs</a>
+                        </li>
+                    </ul>
+
+                    <!-- RIGHT MENU (LOGIN / LOGOUT) -->
+                    <ul class="navbar-nav">
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <span class="navbar-text me-2">
+                                    Hello, <strong>@User.Identity.Name</strong>
+                                </span>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-area="Identity" asp-page="/Account/Logout">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted mt-4">
+        <div class="container text-center">
+            &copy; 2026 - ParcAuto | ASP.NET Core Razor Pages
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        function confirmDelete(isAuthenticated) {
+            if (isAuthenticated === 'False' || isAuthenticated === '') {
+                alert('You must be logged in to delete items. Please login first.');
+                window.location.href = '/Identity/Account/Login';
+                return false;
+            }
+            return confirm('Are you sure you want to delete this item?');
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

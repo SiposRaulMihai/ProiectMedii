@@ -1,0 +1,102 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-3 fw-bold text-primary">🚗 ParcAuto Fleet Management</h1>
+    <p class="lead text-muted">Manage your vehicle fleet, drivers, reservations, maintenance, and fuel logs</p>
+</div>
+
+<div class="row g-4">
+    <!-- Vehicles Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body text-center">
+                <div class="display-4 mb-3">🚙</div>
+                <h3 class="card-title">Vehicles</h3>
+                <p class="card-text text-muted">Manage your vehicle fleet</p>
+                <a asp-page="/Vehicles/Index" class="btn btn-primary w-100 mb-2">View All Vehicles</a>
+                <a asp-page="/Vehicles/Create" class="btn btn-outline-primary w-100">Add New Vehicle</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drivers Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body text-center">
+                <div class="display-4 mb-3">👤</div>
+                <h3 class="card-title">Drivers</h3>
+                <p class="card-text text-muted">Manage driver information</p>
+                <a asp-page="/Drivers/Index" class="btn btn-success w-100 mb-2">View All Drivers</a>
+                <a asp-page="/Drivers/Create" class="btn btn-outline-success w-100">Add New Driver</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservations Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body text-center">
+                <div class="display-4 mb-3">📅</div>
+                <h3 class="card-title">Reservations</h3>
+                <p class="card-text text-muted">Schedule vehicle reservations</p>
+                <a asp-page="/Reservations/Index" class="btn btn-info w-100 mb-2">View All Reservations</a>
+                <a asp-page="/Reservations/Create" class="btn btn-outline-info w-100">New Reservation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Maintenance Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body text-center">
+                <div class="display-4 mb-3">🔧</div>
+                <h3 class="card-title">Maintenance</h3>
+                <p class="card-text text-muted">Track vehicle maintenance</p>
+                <a asp-page="/Maintenances/Index" class="btn btn-warning w-100 mb-2">View Maintenance Records</a>
+                <a asp-page="/Maintenances/Create" class="btn btn-outline-warning w-100">Log Maintenance</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fuel Logs Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body text-center">
+                <div class="display-4 mb-3">⛽</div>
+                <h3 class="card-title">Fuel Logs</h3>
+                <p class="card-text text-muted">Monitor fuel consumption</p>
+                <a asp-page="/FuelLogs/Index" class="btn btn-danger w-100 mb-2">View Fuel Logs</a>
+                <a asp-page="/FuelLogs/Create" class="btn btn-outline-danger w-100">Log Refueling</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Documentation Card -->
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body text-center">
+                <div class="display-4 mb-3">📱</div>
+                <h3 class="card-title">API & Mobile</h3>
+                <p class="card-text text-muted">Access API documentation</p>
+                <a href="/swagger" target="_blank" class="btn btn-secondary w-100 mb-2">View API Docs</a>
+                <small class="text-muted d-block mt-2">Mobile app available on Android & iOS</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-info mt-5" role="alert">
+    <h4 class="alert-heading">📖 Quick Start Guide</h4>
+    <hr>
+    <ol class="mb-0">
+        <li><strong>Add Vehicles:</strong> Start by adding vehicles to your fleet</li>
+        <li><strong>Register Drivers:</strong> Add driver information</li>
+        <li><strong>Create Reservations:</strong> Schedule vehicles for drivers</li>
+        <li><strong>Track Maintenance:</strong> Log maintenance activities</li>
+        <li><strong>Monitor Fuel:</strong> Keep track of refueling records</li>
+    </ol>
+</div>

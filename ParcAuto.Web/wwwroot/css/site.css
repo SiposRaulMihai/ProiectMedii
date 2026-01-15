@@ -1,0 +1,70 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Dashboard Cards Hover Effect */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Active Navigation Link */
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: #0d6efd !important;
+  border-bottom: 2px solid #0d6efd;
+}
+
+/* Table Styling */
+.table thead {
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* Action Buttons */
+.btn-group-sm > .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Footer */
+.footer {
+  padding: 1rem 0;
+  background-color: #f8f9fa;
+}
+
+/* Card Badges */
+.badge {
+  font-size: 0.875rem;
+  padding: 0.35em 0.65em;
+}

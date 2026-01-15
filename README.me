@@ -1,0 +1,307 @@
+📘 DOCUMENTAȚIE TEHNICĂ
+Sistem informatic pentru gestionarea unui Parc Auto
+1. Introducere
+
+Acest proiect reprezintă un sistem informatic complet pentru gestionarea unui parc auto, dezvoltat în cadrul disciplinei Inginerie Economică (IE).
+Sistemul permite administrarea mașinilor, a șoferilor, a rezervărilor, a operațiilor de mentenanță și a alimentărilor cu combustibil, utilizând tehnologii moderne Microsoft.
+
+Proiectul este realizat sub forma:
+
+Aplicație Web – ASP.NET Core Razor Pages
+
+(urmează) Aplicație mobilă – .NET MAUI
+
+Tematica este originală, diferită de cea din laboratoare, și nu reprezintă o simplă traducere a unor exemple existente.
+
+2. Tehnologii utilizate
+2.1 Limbaje și framework-uri
+
+C#
+
+ASP.NET Core 8.0
+
+Razor Pages
+
+Entity Framework Core 8.x
+
+ASP.NET Identity
+
+2.2 Bază de date
+
+SQL Server 2022
+
+Rulat în Docker Container
+
+Accesat prin Entity Framework Core (Code First)
+
+2.3 Mediu de dezvoltare
+
+macOS
+
+Visual Studio Code
+
+.NET SDK 8.x
+
+Docker Desktop
+
+3. Arhitectura aplicației
+
+Aplicația web este construită pe arhitectura MVC simplificată (Razor Pages):
+
+Models – entitățile de business
+
+Data – DbContext + migrații
+
+Pages – interfața utilizator (UI)
+
+Identity – autentificare și autorizare
+
+Shared Layout – meniu comun și structură vizuală
+
+4. Structura bazei de date
+
+Baza de date conține 5 tabele de business, toate relaționate între ele:
+
+4.1 Vehicles
+
+Reprezintă mașinile din parc.
+
+Câmpuri principale:
+
+VehicleId (PK)
+
+Brand
+
+Model
+
+LicensePlate
+
+Year
+
+4.2 Drivers
+
+Reprezintă șoferii.
+
+Câmpuri:
+
+DriverId (PK)
+
+FirstName
+
+LastName
+
+Email
+
+Phone
+
+4.3 Reservations
+
+Reprezintă rezervările de mașini.
+
+Relații:
+
+VehicleId → Vehicles
+
+DriverId → Drivers
+
+Câmpuri:
+
+ReservationId (PK)
+
+StartDate
+
+EndDate
+
+Purpose
+
+4.4 Maintenance
+
+Reprezintă operațiile de mentenanță ale mașinilor.
+
+Relații:
+
+VehicleId → Vehicles
+
+Câmpuri:
+
+MaintenanceId (PK)
+
+MaintenanceDate
+
+Description
+
+Cost
+
+4.5 FuelLog
+
+Reprezintă alimentările cu combustibil.
+
+Relații:
+
+VehicleId → Vehicles
+
+Câmpuri:
+
+FuelLogId (PK)
+
+FuelDate
+
+Liters
+
+Price
+
+5. Relații între tabele
+
+Vehicles ↔ Reservations (1:N)
+
+Drivers ↔ Reservations (1:N)
+
+Vehicles ↔ Maintenance (1:N)
+
+Vehicles ↔ FuelLog (1:N)
+
+Aceste relații sunt implementate prin chei externe (Foreign Keys) și sunt gestionate automat de Entity Framework Core.
+
+6. Operații CRUD (Create, Read, Update, Delete)
+
+Pentru TOATE cele 5 tabele de business, aplicația oferă:
+
+pagină de listare (Index)
+
+adăugare (Create)
+
+modificare (Edit)
+
+ștergere (Delete)
+
+detalii (Details)
+
+CRUD-ul este implementat folosind:
+
+Razor Pages
+
+Entity Framework Core
+
+Scaffold generator
+
+👉 Cerința CRUD este îndeplinită complet.
+
+7. Validarea datelor
+7.1 Validări simple
+
+câmpuri obligatorii ([Required])
+
+email valid ([EmailAddress])
+
+date și valori numerice corecte
+
+7.2 Validări complexe
+
+EndDate trebuie să fie după StartDate
+
+o mașină nu poate avea două rezervări suprapuse în același interval
+
+Aceste validări sunt implementate în codul backend și nu permit salvarea datelor incorecte.
+
+8. Autentificare
+
+Aplicația folosește ASP.NET Identity pentru:
+
+Register
+
+Login
+
+Logout
+
+gestionarea utilizatorilor
+
+Datele utilizatorilor sunt stocate în tabele dedicate (AspNetUsers etc.).
+
+9. Autorizare
+
+Autorizarea este realizată prin atributul:
+
+[Authorize]
+
+
+Funcționalitate:
+
+utilizatorii neautentificați nu pot accesa operații critice
+
+utilizatorii autentificați pot crea, edita și șterge date
+
+Această abordare respectă cerința de autorizare fără a introduce complexitate inutilă.
+
+10. Interfața utilizator
+10.1 Layout comun
+
+Aplicația are un layout comun cu:
+
+meniu de navigare
+
+link-uri către toate entitățile
+
+Login / Register / Logout
+
+afișarea utilizatorului logat
+
+10.2 Navigare
+
+Din meniu se poate accesa:
+
+Vehicles
+
+Drivers
+
+Reservations
+
+Maintenances
+
+Fuel Logs
+
+11. Docker și SQL Server
+
+Baza de date rulează într-un container Docker:
+
+SQL Server 2022
+
+Port expus: 1433
+
+Conectare prin string de conexiune din appsettings.json
+
+Migrațiile sunt realizate prin:
+
+dotnet ef migrations add ...
+dotnet ef database update
+
+12. Conformitate cu cerințele proiectului
+Cerință	Status
+Aplicație web ASP.NET Core	✅
+Min. 5 tabele relaționate	✅
+CRUD complet	✅
+Validare date	✅
+Autentificare	✅
+Autorizare	✅
+Tematică originală	✅
+Aplicație mobilă MAUI	❌ (urmează)
+13. Concluzie
+
+Aplicația web realizată reprezintă un sistem informatic complet și funcțional, care respectă toate cerințele impuse pentru proiectul IE, cu excepția aplicației mobile (.NET MAUI), care va fi implementată ulterior.
+
+Proiectul este:
+
+stabil
+
+bine structurat
+
+ușor de extins
+
+potrivit pentru prezentare și evaluare
+
+14. Pași următori
+
+dezvoltarea aplicației mobile .NET MAUI
+
+conectarea la aceeași bază de date
+
+implementarea notificărilor

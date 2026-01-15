@@ -1,0 +1,63 @@
+@page
+@model ParcAuto.Web.Pages.Drivers.IndexModel
+
+@{
+    ViewData["Title"] = "Drivers";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>👤 Drivers</h2>
+    <div>
+        <a asp-page="/Index" class="btn btn-outline-secondary">🏠 Home</a>
+        <a asp-page="Create" class="btn btn-success">+ Add Driver</a>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Driver[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Driver[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Driver[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Driver[0].Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Driver) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                <div class="btn-group btn-group-sm" role="group">
+                    <a asp-page="./Details" asp-route-id="@item.DriverId" class="btn btn-info">Details</a>
+                    <a asp-page="./Edit" asp-route-id="@item.DriverId" class="btn btn-warning">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.DriverId" class="btn btn-danger" onclick="return confirmDelete('@User.Identity.IsAuthenticated')">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>
+</div>
