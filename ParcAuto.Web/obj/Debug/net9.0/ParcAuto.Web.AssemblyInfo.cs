@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ParcAuto.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d3f47f313e576a05cb7b021050fd8ec761f2206")]
 [assembly: System.Reflection.AssemblyProductAttribute("ParcAuto.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ParcAuto.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

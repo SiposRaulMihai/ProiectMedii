@@ -1,2 +1,0 @@
-# ProiectMedii
-Aplicatie Garaj
